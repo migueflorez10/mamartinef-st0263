@@ -23,6 +23,8 @@ La arquitectura de diseño de alto nivel para el proyecto se basa en un sistema 
 
 
 ## 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones:
+![p2p2 drawio](https://github.com/migueflorez10/mamartinef-st0263/assets/68928440/06a13edc-e502-4737-8162-ab21714bf7ad)
+
 **Lenguaje de programación:** Python, JavaScript.
 
 - **Librerías/paquetes:** grpcio, grpcio-tools, requests, entre otros definidos en requirements.txt.
@@ -30,6 +32,16 @@ La arquitectura de diseño de alto nivel para el proyecto se basa en un sistema 
 - **Cómo se compila y ejecuta:** La aplicación se ejecuta directamente con Python. La compilación de archivos .proto para gRPC se realiza mediante grpcio-tools.
 
 - **Configuración del proyecto:** Los parámetros como IP, puerto, y directorio de archivos se configuran mediante archivos de configuración, permitiendo flexibilidad y adaptabilidad en diferentes entornos de ejecución.
+
+### Cliente
+- **Compilación del Protocolo gRPC:** Utilice el comando específico para compilar el archivo .proto y generar los stubs necesarios para la comunicación gRPC.
+- **Instalación de Dependencias:** Ejecute pip install -r requirements.txt para instalar todas las dependencias especificadas.
+- **Ejecución del Cliente:** Inicie el script main.py. Durante la ejecución, se le solicitará ingresar la IP pública para conectarse al servidor de arranque.
+
+### Servidor de Arranque
+- **Instalación de Node.js:** Siga los pasos para instalar Node.js utilizando el comando apropiado.
+- **Arranque del Servidor:** Ejecute sudo node main.js para iniciar el servidor, el cual escuchará en el puerto 8000.
+- **Configuración en AWS:** Tanto la IP como los puertos se deben configurar a través de AWS, tratando cada instancia como un peer diferente en la red.
 
 El ambiente de desarrollo técnico se basa en Node.js para el backend, con el uso de librerías como net para TCP, @grpc/grpc-js y @grpc/proto-loader para gRPC, y fs para manejo de archivos. Las versiones específicas incluyen grpcio@1.62.0 y requests@2.31.0 entre otras. El proyecto se ejecuta mediante comandos de Node.js, por ejemplo, node main.js para iniciar el sistema. Los parámetros del proyecto como IP y puertos se configuran en archivos .js y .json, facilitando la adaptación a diferentes entornos.
 
