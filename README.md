@@ -19,13 +19,13 @@ Se adopta una arquitectura basada en microservicios dentro de una red P2P. Se ut
 
 
 ## 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones:
-**Lenguaje de programación:** Python.
+**Lenguaje de programación:** Python, JavaScript.
 
-**Librerías/paquetes:** grpcio, grpcio-tools, requests, entre otros definidos en requirements.txt.
+- **Librerías/paquetes:** grpcio, grpcio-tools, requests, entre otros definidos en requirements.txt.
 
-**Cómo se compila y ejecuta:** La aplicación se ejecuta directamente con Python. La compilación de archivos .proto para gRPC se realiza mediante grpcio-tools.
+- **Cómo se compila y ejecuta:** La aplicación se ejecuta directamente con Python. La compilación de archivos .proto para gRPC se realiza mediante grpcio-tools.
 
-**Configuración del proyecto:** Los parámetros como IP, puerto, y directorio de archivos se configuran mediante archivos de configuración, permitiendo flexibilidad y adaptabilidad en diferentes entornos de ejecución.
+- **Configuración del proyecto:** Los parámetros como IP, puerto, y directorio de archivos se configuran mediante archivos de configuración, permitiendo flexibilidad y adaptabilidad en diferentes entornos de ejecución.
 
 
 ## 4. Descripción del ambiente de Ejecucion
