@@ -10,12 +10,16 @@
 
 1.1 La implementación cumple con los requisitos funcionales y no funcionales propuestos, destacando la creación de un sistema P2P para compartir archivos con microservicios que utilizan gRPC para la comunicación RPC y REST para APIs. Se implementan funcionalidades de localización y compartición de archivos, concurrencia en el servidor, y configuración dinámica de nodos.
 
-1.2 Todos los aspectos de desarrollo fueron completados. 
+- **Microservicios para Servidor y Cliente:** Desarrollo de módulos específicos para funcionalidades de servidor y cliente, incluyendo búsqueda y transferencia de archivos.
+- **Concurrencia:** Manejo de múltiples conexiones y solicitudes simultáneas mediante hilos.
+- **Configuración Dinámica:** Uso de archivos de configuración para parámetros iniciales y adaptabilidad del sistema.
+
+1.2 Un desafío pendiente es la efectividad en la respuesta del servidor inicial (pear de arranque), que si bien logra recibir las solicitudes y establecer las conexiones necesarias, aún no alcanza el nivel de respuesta esperado. Este aspecto crucial para la funcionalidad completa del sistema requiere una revisión detallada para asegurar una interacción fluida entre los nodos."
 
 
 ## 2. Información general de diseño de alto nivel, arquitectura, patrones, mejores prácticas utilizadas:
 
-Se adopta una arquitectura basada en microservicios dentro de una red P2P. Se utilizan gRPC y REST para la comunicación entre servicios, enfatizando la modularidad, la escalabilidad y la eficiencia en la gestión de conexiones concurrentes.
+La arquitectura de diseño de alto nivel para el proyecto se basa en un sistema P2P no estructurado con microservicios para soportar la compartición de archivos. Se utilizan patrones de diseño como Cliente-Servidor para las interacciones entre nodos y el modelo Publicador-Suscriptor para la actualización y sincronización de archivos. Las mejores prácticas incluyen el uso de archivos de configuración para flexibilidad, el manejo de concurrencia mediante hilos, y el empleo de gRPC para llamadas a procedimientos remotos eficientes. La arquitectura modular facilita la escalabilidad y mantenimiento del sistema.
 
 
 ## 3. Descripción del ambiente de desarrollo y técnico: lenguaje de programación, librerias, paquetes, etc, con sus numeros de versiones:
@@ -27,13 +31,20 @@ Se adopta una arquitectura basada en microservicios dentro de una red P2P. Se ut
 
 - **Configuración del proyecto:** Los parámetros como IP, puerto, y directorio de archivos se configuran mediante archivos de configuración, permitiendo flexibilidad y adaptabilidad en diferentes entornos de ejecución.
 
+El ambiente de desarrollo técnico se basa en Node.js para el backend, con el uso de librerías como net para TCP, @grpc/grpc-js y @grpc/proto-loader para gRPC, y fs para manejo de archivos. Las versiones específicas incluyen grpcio@1.62.0 y requests@2.31.0 entre otras. El proyecto se ejecuta mediante comandos de Node.js, por ejemplo, node main.js para iniciar el sistema. Los parámetros del proyecto como IP y puertos se configuran en archivos .js y .json, facilitando la adaptación a diferentes entornos.
+
 
 ## 4. Descripción del ambiente de Ejecucion
 - Similar al ambiente de desarrollo, con énfasis en la ejecución en entornos de producción potencialmente distribuidos como AWS, donde se configuran IPs y puertos específicos.
+
+- **IP o Nombres de Dominio:** Utiliza direcciones IP públicas o nombres de dominio configurados en tu proveedor de nube o en la máquina servidor.
+- **Configuración de Parámetros:** Los parámetros como IP, puertos, y directorios se configuran en archivos config.json o similares. Esto permite ajustes dinámicos sin modificar el código. 
+- **Ejemplo:** node main.js para arrancar el servidor.
+- **Lanzamiento del Servidor:** Ejecuta node server.js desde la línea de comando en el directorio del proyecto para iniciar el servidor gRPC y el servidor TCP.
   
 - **Guía de usuario:** La interacción con el sistema se realiza a través de la interfaz de línea de comandos, donde los usuarios pueden buscar y compartir archivos.
 
-## 4. Información relevante adicional:
+## 5. Información relevante adicional:
 - La implementación demuestra un uso efectivo de patrones de diseño modernos y tecnologías para sistemas distribuidos. La modularidad y la capacidad de adaptación del sistema a diferentes entornos de red y configuraciones lo hacen robusto y versátil para su uso en diversos escenarios de compartición de archivos.
 
 - La solución hace uso intensivo de concurrencia para manejar múltiples conexiones y solicitudes simultáneas, destacando la escalabilidad y la eficiencia en la gestión de recursos.
